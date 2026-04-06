@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Issue: Statistical Analysis - Death Toll Investigation</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        .issue-detail {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .detail-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .detail-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            color: var(--color-black);
+            margin-bottom: 1rem;
+        }
+
+        .detail-subtitle {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--color-gray);
+            margin-bottom: 2rem;
+        }
+
+        .stats-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--color-off-white);
+            border: 1px solid var(--color-lighter-gray);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--color-accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: var(--color-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .temporal-analysis {
+            margin: 4rem 0;
+        }
+
+        .temporal-chart {
+            background: var(--color-off-white);
+            border: 1px solid var(--color-lighter-gray);
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .temporal-chart img {
+            max-width: 100%;
+            max-height: 450px;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .temporal-chart img:hover {
+            transform: scale(1.02);
+        }
+
+        .geographic-analysis {
+            margin: 4rem 0;
+        }
+
+        .geographic-map {
+            background: var(--color-off-white);
+            border: 1px solid var(--color-lighter-gray);
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .geographic-map img {
+            max-width: 100%;
+            max-height: 450px;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .geographic-map img:hover {
+            transform: scale(1.02);
+        }
+
+        .analysis-text {
+            max-width: 65ch;
+            margin: 2rem auto;
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--color-dark-gray);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 3rem;
+            font-family: var(--font-sans);
+            font-weight: 600;
+            color: var(--color-accent);
+            text-decoration: none;
+            padding: 0.75rem 2rem;
+            border: 2px solid var(--color-accent);
+            transition: all 0.2s ease;
+        }
+
+        .back-link:hover {
+            background: var(--color-accent);
+            color: var(--color-white);
+        }
+
+        .chart-caption {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: var(--color-gray);
+            margin-top: 1.5rem;
+            line-height: 1.5;
+            text-align: center;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .source-attribution {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            color: var(--color-light-gray);
+            font-style: italic;
+            margin-top: 0.75rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-black);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .challenging-normalization {
+            margin: 4rem 0 2rem 0;
+            padding: 2rem 2rem 3rem 2rem;
+            background: var(--color-off-white);
+            border-radius: 8px;
+        }
+
+        .normalization-content>p:last-of-type {
+            margin-top: 2rem;
+            margin-bottom: 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--color-lighter-gray);
+        }
+
+        .normalization-content {
+            max-width: 65ch;
+            margin: 0 auto;
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--color-dark-gray);
+        }
+
+        .normalization-factors {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .factor-item {
+            background: var(--color-white);
+            padding: 1.5rem;
+            border: 1px solid var(--color-lighter-gray);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .factor-item h4 {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: var(--color-black);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .factor-item p {
+            font-family: var(--font-serif);
+            line-height: 1.6;
+            color: var(--color-dark-gray);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+
+            .temporal-chart img,
+            .geographic-map img {
+                max-height: 350px;
+            }
+
+            .chart-caption {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="issue-detail">
+        <header class="detail-header">
+            <h1 class="detail-title">THE ISSUE</h1>
+            <p class="detail-subtitle">The Statistical Reality of Political Violence</p>
+        </header>
+
+        <main>
+            <section class="temporal-analysis">
+                <h2 class="section-title">Deaths Over Time</h2>
+                <div class="temporal-chart">
+                    <img src="../photos/deathsgraph.png" alt="Political Killings Over Time" />
+                </div>
+                <div class="chart-caption">
+                    Political killings in Mexico
+                </div>
+                <div class="source-attribution">Source: Statista, 2024</div>
+                <p class="analysis-text">
+                    The data shows an escalation in violence against journalists, activists, and political figures
+                    since 2006. Sources say this corresponds with Mexico's intensifying drug war and increasing
+                    political
+                    polarization. The years
+                    2020 and 2022 represent the deadliest period on record. It is important to note that many different
+                    sources have varying numbers as a result of categorical differences.
+                </p>
+            </section>
+
+            <section class="geographic-analysis">
+                <h2 class="section-title">Geographic Distribution & Impunity</h2>
+                <div class="geographic-map">
+                    <img src="../photos/impunityrates.png" alt="Impunity Rates by Country" />
+                </div>
+                <div class="chart-caption">
+                    Mexico's impunity rate of 89% for journalist murders places it among the highest globally. This
+                    means
+                    that for every 100 journalists killed, roughly 11 cases result in conviction, creating a cycle where
+                    violence becomes an effective tool for silencing opposition.
+                </div>
+                <div class="source-attribution">Source: Statista, 2024</div>
+                <p class="analysis-text">
+                    Violence concentrates heavily in states with significant organized crime activity and political
+                    corruption.
+                    Veracruz, Guerrero, and Tamaulipas account for 40% of all documented cases,
+                    while Mexico City represents the highest risk for journalists specifically because of political
+                    pressure.
+                </p>
+            </section>
+        </main>
+
+        <section class="challenging-normalization">
+            <h2 class="section-title">Challenging Normalization</h2>
+            <div class="normalization-content">
+                <p>Resistance to normalization requires conscious effort to reframe these deaths as what they are:
+                    political assassinations designed to preserve power. This involves:</p>
+                <div class="normalization-factors">
+                    <div class="factor-item">
+                        <h4>Consistently connecting individual deaths to broader patterns</h4>
+                        <p>Refusing to accept "isolated incident" narratives and showing how each killing fits into
+                            systematic campaign against activists and journalists.</p>
+                    </div>
+                    <div class="factor-item">
+                        <h4>Humanizing victims through detailed storytelling</h4>
+                        <p>Sharing personal stories, backgrounds, and the human cost of each death to counter
+                            statistical numbness and maintain public attention.</p>
+                    </div>
+                    <div class="factor-item">
+                        <h4>Holding media accountable for problematic framing</h4>
+                        <p>Challenging language that treats violence as inevitable or criminal, and demanding accurate
+                            context about political motivations behind each attack.</p>
+                    </div>
+                    <div class="factor-item">
+                        <h4>Maintaining collective outrage and memory</h4>
+                        <p>Creating sustained public pressure that prevents normalization and demands justice for each
+                            victim.</p>
+                    </div>
+                    <div class="factor-item">
+                        <h4>Building solidarity across affected communities</h4>
+                        <p>Organizing cross-community support and protection networks that demonstrate violence will not
+                            break the spirit of those seeking truth and justice.</p>
+                    </div>
+                </div>
+                <p>The normalization of death is one of the most insidious aspect of Mexico's crisis. When society
+                    accepts killings as routine, when outrage becomes temporary, and when each death is forgotten within a few
+                    days, violence silences both individuals, and the
+                    collective conscience.</p>
+            </div>
+        </section>
+
+        <footer>
+            <a href="../index.html" class="back-link">← Back to Main Investigation</a>
+        </footer>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

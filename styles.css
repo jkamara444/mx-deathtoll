@@ -1,0 +1,714 @@
+/* Compact Newspaper-Style CSS for Death Toll Investigation */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Typography */
+    --font-serif: 'Source Serif Pro', Georgia, serif;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Colors - Newspaper palette */
+    --color-black: #000000;
+    --color-dark-gray: #1a1a1a;
+    --color-gray: #666666;
+    --color-light-gray: #999999;
+    --color-lighter-gray: #cccccc;
+    --color-off-white: #f8f8f8;
+    --color-white: #ffffff;
+    --color-accent: #e91e63;
+    /* Pink for emphasis */
+
+    /* Layout */
+    --max-width: 1400px;
+    --column-gap: 1rem;
+    --row-gap: 1.5rem;
+}
+
+body {
+    font-family: var(--font-serif);
+    line-height: 1.5;
+    color: var(--color-dark-gray);
+    background-color: var(--color-white);
+    font-size: 14px;
+    overflow-x: hidden;
+}
+
+/* Typography Hierarchy */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: var(--color-black);
+}
+
+h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-black);
+}
+
+h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-black);
+}
+
+h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-black);
+}
+
+p {
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+}
+
+/* Newspaper Container */
+.newspaper-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    background: var(--color-white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Masthead */
+.newspaper-masthead {
+    text-align: center;
+    padding: 2rem 1rem 1rem;
+    border-bottom: 3px double var(--color-black);
+    background: var(--color-white);
+}
+
+.masthead-title {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    color: var(--color-black);
+    margin-bottom: 0.25rem;
+    line-height: 0.9;
+}
+
+.masthead-subtitle {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-gray);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.masthead-date {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--color-light-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Newspaper Grid Layout */
+.newspaper-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(180px, auto);
+    gap: var(--column-gap);
+    padding: 1rem;
+    flex: 1;
+}
+
+/* Story Blocks */
+.story-block {
+    background: var(--color-white);
+    border: 1px solid var(--color-lighter-gray);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s ease;
+    min-height: 180px;
+}
+
+.story-block:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Block Variations */
+.main-story {
+    grid-column: span 2;
+    grid-row: span 2;
+    background: var(--color-black);
+    color: var(--color-white);
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-story-image {
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    z-index: 0;
+    position: relative;
+    background: #f0f0f0;
+    border: 1px solid #333;
+    aspect-ratio: 1/1;
+}
+
+.main-story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    opacity: 0.8;
+}
+
+.stats-block {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.system-block {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.targeting-block {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.cycle-block {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.impact-block {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.journalist-block {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.journalist-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+}
+
+.journalist-role {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--color-gray);
+    margin-bottom: 0.25rem;
+}
+
+.journalist-date {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--color-light-gray);
+    margin-bottom: 0.75rem;
+}
+
+.links-block {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+/* Block Titles */
+.block-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 0.25rem;
+}
+
+.block-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 0.25rem;
+}
+
+.block-subtitle {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--color-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+/* Story Elements */
+.story-headline {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--color-white);
+    margin-bottom: 0.75rem;
+    line-height: 1;
+}
+
+.story-deck {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--color-light-gray);
+    margin-bottom: 1rem;
+}
+
+.story-meta {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--color-light-gray);
+    margin-top: auto;
+}
+
+.author,
+.location {
+    margin-right: 1rem;
+}
+
+.block-text {
+    font-family: var(--font-serif);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--color-dark-gray);
+    margin-bottom: 1rem;
+}
+
+/* Statistics Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 0.75rem;
+    background: var(--color-off-white);
+    border: 1px solid var(--color-lighter-gray);
+}
+
+.stat-number {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--color-accent);
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    color: var(--color-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* System Factors */
+.system-factors {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.factor {
+    background: var(--color-off-white);
+    border: 1px solid var(--color-lighter-gray);
+    padding: 0.75rem;
+    text-align: center;
+}
+
+.factor h4 {
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+    color: var(--color-accent);
+}
+
+.factor p {
+    font-size: 0.75rem;
+    margin: 0;
+}
+
+/* Targeting Grid */
+.target-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.target-item {
+    text-align: center;
+    padding: 0.75rem;
+    background: var(--color-off-white);
+    border: 1px solid var(--color-lighter-gray);
+}
+
+.target-item h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.target-stat {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--color-accent);
+    margin-bottom: 0.25rem;
+}
+
+.target-desc {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    color: var(--color-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Cycle Steps */
+.cycle-steps {
+    margin: 1rem 0;
+}
+
+.cycle-step {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-dark-gray);
+    text-align: center;
+    padding: 0.75rem;
+    background: var(--color-off-white);
+    border: 1px solid var(--color-lighter-gray);
+}
+
+/* Historical Content */
+.historical-content {
+    margin-top: 1rem;
+}
+
+.historical-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.historical-dates {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Cost Items */
+.cost-items {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.cost-item {
+    text-align: center;
+    padding: 0.75rem;
+    background: var(--color-off-white);
+    border: 1px solid var(--color-lighter-gray);
+}
+
+.cost-item h4 {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.cost-item p {
+    font-size: 0.75rem;
+    margin: 0;
+}
+
+/* Chart Visual */
+.chart-visual {
+    margin-top: 1rem;
+}
+
+.chart-bars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 100px;
+    padding: 0.5rem;
+    background: var(--color-off-white);
+    border: 1px solid var(--color-lighter-gray);
+}
+
+.bar {
+    flex: 1;
+    background: linear-gradient(to top, var(--color-accent), #f48fb1);
+    margin: 0 2px;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    min-height: 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.bar span {
+    position: absolute;
+    bottom: -20px;
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    color: var(--color-gray);
+}
+
+/* Impact Stats */
+.impact-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.impact-stat {
+    text-align: center;
+    padding: 0.75rem;
+    background: var(--color-off-white);
+    border: 1px solid var(--color-lighter-gray);
+}
+
+.impact-number {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--color-accent);
+    margin-bottom: 0.25rem;
+}
+
+.impact-label {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    color: var(--color-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Section Links */
+.section-links {
+    margin-top: 1rem;
+}
+
+.section-links-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.section-link {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-white);
+    text-decoration: none;
+    text-align: center;
+    padding: 0.4rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.2s ease;
+}
+
+.section-link:hover {
+    background: var(--color-accent);
+    color: var(--color-white);
+}
+
+.main-story .block-title {
+    color: var(--color-white);
+    border-bottom-color: var(--color-white);
+}
+
+/* Footer */
+.newspaper-footer {
+    background: var(--color-black);
+    color: var(--color-white);
+    padding: 2rem 1rem;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--color-white);
+    margin-bottom: 0.75rem;
+}
+
+.footer-section p {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--color-light-gray);
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .newspaper-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .main-story {
+        grid-column: span 2;
+    }
+
+    .chart-block {
+        grid-column: span 1;
+    }
+
+    .links-block {
+        grid-column: span 3;
+    }
+}
+
+@media (max-width: 900px) {
+    .newspaper-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .main-story {
+        grid-column: span 2;
+    }
+
+    .system-block,
+    .targeting-block,
+    .history-block {
+        grid-row: span 1;
+    }
+
+    .chart-block {
+        grid-column: span 2;
+    }
+
+    .links-block {
+        grid-column: span 2;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .newspaper-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        padding: 0.75rem;
+    }
+
+    .main-story {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .story-block {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .masthead-title {
+        font-size: 2.5rem;
+    }
+
+    .story-headline {
+        font-size: 1.8rem;
+    }
+
+    .chart-bars {
+        height: 100px;
+    }
+}
+
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus Styles */
+.story-block:focus-within {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+.section-link:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    :root {
+        --color-light-gray: #333333;
+        --color-lighter-gray: #666666;
+        --color-off-white: #f0f0f0;
+    }
+}

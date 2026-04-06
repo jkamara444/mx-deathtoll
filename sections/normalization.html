@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sources and Evidence - Death Toll Investigation</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        .normalization-detail {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .detail-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .detail-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            color: var(--color-black);
+            margin-bottom: 1rem;
+        }
+
+        .detail-subtitle {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--color-gray);
+            margin-bottom: 2rem;
+        }
+
+        .normalization-overview {
+            font-family: var(--font-serif);
+            line-height: 1.8;
+            font-size: 1.125rem;
+            color: var(--color-dark-gray);
+            margin-bottom: 3rem;
+        }
+
+        .normalization-overview p {
+            max-width: none;
+            margin-bottom: 2rem;
+        }
+
+        .pull-quote-section {
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .pull-quote {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--color-black);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding: 0 3rem;
+        }
+
+        .pull-quote::before,
+        .pull-quote::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--color-lighter-gray);
+            position: absolute;
+            font-family: var(--font-display);
+        }
+
+        .pull-quote::before {
+            top: -1rem;
+            left: 0;
+        }
+
+        .pull-quote::after {
+            bottom: -2rem;
+            right: 0;
+        }
+
+        .quote-attribution {
+            font-family: var(--font-sans);
+            font-style: italic;
+            color: var(--color-gray);
+            font-size: 1rem;
+        }
+
+        .framing-section {
+            margin: 4rem 0;
+        }
+
+        .framing-section h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--color-black);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .framing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .frame-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-lighter-gray);
+            padding: 2rem;
+            position: relative;
+        }
+
+        .frame-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--color-accent);
+        }
+
+        .frame-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-black);
+            margin-bottom: 1rem;
+        }
+
+        .frame-description {
+            font-family: var(--font-serif);
+            line-height: 1.6;
+            color: var(--color-dark-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .example-quote {
+            background: var(--color-off-white);
+            border-left: 3px solid var(--color-gray);
+            padding: 1rem;
+            font-family: var(--font-sans);
+            font-style: italic;
+            color: var(--color-gray);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .media-analysis {
+            background: var(--color-off-white);
+            border: 1px solid var(--color-lighter-gray);
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+
+        .media-analysis h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            color: var(--color-black);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .coverage-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--color-white);
+            border: 1px solid var(--color-lighter-gray);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--color-accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            color: var(--color-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .social-impact {
+            margin: 4rem 0;
+        }
+
+        .social-impact h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--color-black);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .impact-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-lighter-gray);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .impact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .impact-title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--color-black);
+            margin-bottom: 1rem;
+        }
+
+        .sources-list {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .source-item {
+            background: var(--color-white);
+            padding: 1.5rem 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--color-accent);
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .source-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .source-item p {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--color-dark-gray);
+            margin: 0;
+        }
+
+        .source-item a {
+            color: var(--color-accent);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .source-item a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 3rem;
+            padding: 0.75rem 2rem;
+            font-family: var(--font-sans);
+            font-weight: 600;
+            color: var(--color-accent);
+            text-decoration: none;
+            border: 2px solid var(--color-accent);
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .back-link:hover {
+            background: var(--color-accent);
+            color: var(--color-white);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="normalization-detail">
+        <header class="detail-header">
+            <h1 class="detail-title">Sources</h1>
+            <p class="detail-subtitle">Research and Documentation</p>
+        </header>
+
+        <main>
+            <div class="sources-list">
+                <div class="source-item">
+                    <p>IDHEAS. <em>Mexico: Organized Crime, Violence, and Politics.</em> IDHEAS, May 2020. <a
+                            href="https://www.idheas.org.mx/wp-content/uploads/2020/05/Mexique750ang-1.pdf"
+                            target="_blank">https://www.idheas.org.mx/wp-content/uploads/2020/05/Mexique750ang-1.pdf</a>
+                    </p>
+                </div>
+                <div class="source-item">
+                    <p>Artículo 19. "Denuncia que el acoso judicial es la nueva forma de censura y persecución a
+                        periodistas en México." <em>El País</em>, 26 Aug. 2025. <a
+                            href="https://elpais.com/mexico/2025-08-26/articulo-19-denuncia-que-el-acoso-judicial-es-la-nueva-forma-de-censura-y-persecucion-a-periodistas-en-mexico.html"
+                            target="_blank">https://elpais.com/mexico/2025-08-26/articulo-19-denuncia-que-el-acoso-judicial-es-la-nueva-forma-de-censura-y-persecucion-a-periodistas-en-mexico.html</a>
+                    </p>
+                </div>
+                <div class="source-item">
+                    <p>Amnesty International. "Killings of Journalists in Mexico Strengthen Federal Protection
+                        Mechanism." <em>Amnesty International</em>, 6 Mar. 2024. <a
+                            href="https://www.amnesty.org/en/latest/news/2024/03/mexico-killings-journalists-strengthen-federal-mechanism/"
+                            target="_blank">https://www.amnesty.org/en/latest/news/2024/03/mexico-killings-journalists-strengthen-federal-mechanism/</a>
+                    </p>
+                </div>
+                <div class="source-item">
+                    <p>Human Rights Watch. "Double Injustice: How Mexico's Criminal Justice System Fails Victims and the
+                        Accused." 19 Feb. 2025. <a
+                            href="https://www.hrw.org/report/2025/02/19/double-injustice/how-mexicos-criminal-justice-system-fails-victims-and-accused"
+                            target="_blank">https://www.hrw.org/report/2025/02/19/double-injustice/how-mexicos-criminal-justice-system-fails-victims-and-accused</a>
+                    </p>
+                </div>
+                <div class="source-item">
+                    <p>Committee to Protect Journalists. "Mexican Photojournalist Margarito Martínez Shot and Killed in
+                        Tijuana." 17 Jan. 2022. <a
+                            href="https://cpj.org/2022/01/mexican-photojournalist-margarito-martinez-shot-and-killed-in-tijuana/"
+                            target="_blank">https://cpj.org/2022/01/mexican-photojournalist-margarito-martinez-shot-and-killed-in-tijuana/</a>
+                    </p>
+                </div>
+                <div class="source-item">
+                    <p>Reuters. "Second Journalist Shot Dead in a Week in Mexico's Tijuana." 24 Jan. 2022. <a
+                            href="https://www.reuters.com/world/americas/second-journalist-shot-dead-week-mexicos-tijuana-2022-01-24/"
+                            target="_blank">https://www.reuters.com/world/americas/second-journalist-shot-dead-week-mexicos-tijuana-2022-01-24/</a>
+                    </p>
+                </div>
+                <div class="source-item">
+                    <p>CBS News. "Mayoral Hopeful Murdered in Mexico Captured on Camera." 29 May 2024. <a
+                            href="https://www.cbsnews.com/news/mayoral-hopeful-murdered-mexico-captured-on-camera-23rd-candidate-killed-elections/"
+                            target="_blank">https://www.cbsnews.com/news/mayoral-hopeful-murdered-mexico-captured-on-camera-23rd-candidate-killed-elections/</a>
+                    </p>
+                </div>
+                <div class="source-item">
+                    <p>CBS News. "Journalist Killed at Restaurant in Veracruz, Mexico." 12 Jan. 2026. <a
+                            href="https://www.cbsnews.com/news/journalist-killed-restaurant-veracruz-mexico/"
+                            target="_blank">https://www.cbsnews.com/news/journalist-killed-restaurant-veracruz-mexico/</a>
+                    </p>
+                </div>
+                <div class="source-item">
+                    <p>United Nations University - WIDER. <em>Why Mexican Politicians Are Assassinated: Electoral
+                            Consequences of Organized Crime.</em> UNU-WIDER Working Paper 2023/7, 2023. <a
+                            href="https://www.wider.unu.edu/sites/default/files/Publications/Working-paper/PDF/wp2023-7-why-Mexican-politicians-assassinated-electoral-consequences-organized-crime.pdf"
+                            target="_blank">https://www.wider.unu.edu/sites/default/files/Publications/Working-paper/PDF/wp2023-7-why-Mexican-politicians-assassinated-electoral-consequences-organized-crime.pdf</a>
+                    </p>
+                </div>
+            </div>
+            <a href="../index.html" class="back-link">← Back to Main Investigation</a>
+        </main>
+    </div>
+</body>
+
+</html>

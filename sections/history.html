@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historical Anchor: Luis Donaldo Colosio - Death Toll Investigation</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .history-detail {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+        
+        .detail-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .detail-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            color: var(--color-black);
+            margin-bottom: 1rem;
+        }
+        
+        .detail-subtitle {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--color-gray);
+            margin-bottom: 2rem;
+        }
+        
+        .history-overview {
+            font-family: var(--font-serif);
+            line-height: 1.8;
+            font-size: 1.125rem;
+            color: var(--color-dark-gray);
+            margin-bottom: 3rem;
+        }
+        
+        .history-overview p {
+            max-width: none;
+            margin-bottom: 2rem;
+        }
+        
+        .colosio-feature {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 4rem 0;
+            background: var(--color-off-white);
+            border: 1px solid var(--color-lighter-gray);
+            padding: 3rem;
+        }
+        
+        .colosio-image {
+            aspect-ratio: 3/4;
+            background: var(--color-lighter-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gray);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .colosio-info h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--color-black);
+            margin-bottom: 1rem;
+        }
+        
+        .colosio-dates {
+            font-family: var(--font-sans);
+            font-size: 1.125rem;
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .colosio-bio {
+            font-family: var(--font-serif);
+            line-height: 1.6;
+            color: var(--color-dark-gray);
+            margin-bottom: 2rem;
+        }
+        
+        .assassination-details {
+            background: var(--color-white);
+            border: 1px solid var(--color-lighter-gray);
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .assassination-details h4 {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-black);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .assassination-details ul {
+            list-style: none;
+        }
+        
+        .assassination-details li {
+            padding: 0.5rem 0;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: var(--color-gray);
+        }
+        
+        .assassination-details li::before {
+            content: '•';
+            color: var(--color-accent);
+            margin-right: 0.5rem;
+        }
+        
+        .connections-section {
+            margin: 4rem 0;
+        }
+        
+        .connections-section h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--color-black);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .connections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .connection-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-lighter-gray);
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .connection-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--color-accent);
+        }
+        
+        .connection-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-black);
+            margin-bottom: 1rem;
+        }
+        
+        .connection-description {
+            font-family: var(--font-serif);
+            line-height: 1.6;
+            color: var(--color-dark-gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .connection-example {
+            background: var(--color-off-white);
+            border-left: 3px solid var(--color-gray);
+            padding: 1rem;
+            font-family: var(--font-sans);
+            font-style: italic;
+            color: var(--color-gray);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        .timeline-section {
+            margin: 4rem 0;
+        }
+        
+        .timeline-section h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--color-black);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .historical-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .historical-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--color-lighter-gray);
+        }
+        
+        .timeline-event {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .timeline-event:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+        
+        .event-content {
+            width: 45%;
+            background: var(--color-white);
+            border: 1px solid var(--color-lighter-gray);
+            padding: 2rem;
+        }
+        
+        .event-year {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--color-accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .event-title {
+            font-family: var(--font-sans);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--color-black);
+            margin-bottom: 1rem;
+        }
+        
+        .event-description {
+            font-family: var(--font-serif);
+            line-height: 1.6;
+            color: var(--color-dark-gray);
+            font-size: 0.95rem;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 2rem;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            border: 3px solid var(--color-white);
+            box-shadow: 0 0 0 3px var(--color-lighter-gray);
+        }
+        
+        .legacy-section {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 3rem;
+            margin: 4rem 0;
+        }
+        
+        .legacy-section h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--color-white);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .legacy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .legacy-item {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .legacy-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--color-accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .legacy-label {
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            color: var(--color-light-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .conclusion {
+            background: var(--color-off-white);
+            border-left: 4px solid var(--color-accent);
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .conclusion h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-black);
+            margin-bottom: 1rem;
+        }
+        
+        .conclusion p {
+            font-family: var(--font-serif);
+            line-height: 1.6;
+            color: var(--color-dark-gray);
+            font-size: 1.125rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 3rem;
+            font-family: var(--font-sans);
+            font-weight: 600;
+            color: var(--color-accent);
+            text-decoration: none;
+            padding: 0.75rem 2rem;
+            border: 2px solid var(--color-accent);
+            transition: all 0.2s ease;
+        }
+        
+        .back-link:hover {
+            background: var(--color-accent);
+            color: var(--color-white);
+        }
+        
+        @media (max-width: 768px) {
+            .colosio-feature {
+                grid-template-columns: 1fr;
+            }
+            
+            .historical-timeline::before {
+                left: 2rem;
+            }
+            
+            .timeline-event {
+                flex-direction: column !important;
+                padding-left: 4rem;
+            }
+            
+            .event-content {
+                width: 100%;
+            }
+            
+            .timeline-dot {
+                left: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="history-detail">
+        <header class="detail-header">
+            <h1 class="detail-title">HISTORICAL ANCHOR</h1>
+            <h2 class="detail-subtitle">Luis Donaldo Colosio and the Legacy of Political Violence</h2>
+            <div class="detail-meta">
+                <span>Historical Analysis</span> • 
+                <span>April 2026</span> • 
+                <span>Part 8 of 7</span>
+            </div>
+        </header>
+        
+        <main>
+            <div class="history-overview">
+                <p>The assassination of Luis Donaldo Colosio Murrieta on March 23, 1994, marked a turning point in Mexican political violence. His death was not just the killing of a presidential candidate—it was the moment when political assassination became an accepted tool for preserving power in modern Mexico.</p>
+                
+                <p>Colosio's murder established patterns that continue to shape Mexico's crisis of violence against journalists, activists, and political figures. The flawed investigation, the convenient scapegoating, the lack of resolution—all became templates for how Mexico would handle political killings for decades to come.</p>
+            </div>
+            
+            <div class="colosio-feature">
+                <div class="colosio-image">
+                    Luis Donaldo Colosio Murrieta<br>
+                    Presidential Candidate<br>
+                    1950-1994
+                </div>
+                <div class="colosio-info">
+                    <h3>Luis Donaldo Colosio Murrieta</h3>
+                    <div class="colosio-dates">February 10, 1950 – March 23, 1994</div>
+                    <div class="colosio-bio">
+                        <p>Colosio was a rising star in Mexico's Institutional Revolutionary Party (PRI) when he was selected as the presidential candidate for the 1994 election. A former Social Development Secretary, he represented a new generation of PRI leadership and, initially, continuity with established power.</p>
+                        
+                        <p>However, in the months before his assassination, Colosio began making statements that suggested he might break with tradition. He spoke of poverty as "the real Mexico," promised to fight corruption, and hinted at reforms that would challenge the entrenched interests that had controlled Mexico for 65 years.</p>
+                        
+                        <p>These statements, combined with his growing popularity, made him a threat to the power structures that had long controlled Mexican politics behind the scenes.</p>
+                    </div>
+                    
+                    <div class="assassination-details">
+                        <h4>The Assassination</h4>
+                        <ul>
+                            <li>Date: March 23, 1994</li>
+                            <li>Location: Lomas Taurinas, Tijuana</li>
+                            <li>Method: Point-blank gunshot wound to the head</li>
+                            <li>Assassin: Mario Aburto Martínez (captured immediately)</li>
+                            <li>Official narrative: Lone gunman, personal motives</li>
+                            <li>Alternative theories: Conspiracy involving powerful interests</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="connections-section">
+                <h2>Connecting Past to Present</h2>
+                <div class="connections-grid">
+                    <div class="connection-card">
+                        <h3 class="connection-title">Political Motive Pattern</h3>
+                        <div class="connection-description">
+                            <p>Colosio's assassination established that political power in Mexico could be protected through violence. His killing showed that when a political figure threatens established interests, assassination becomes a viable solution.</p>
+                        </div>
+                        <div class="connection-example">
+                            Today, 73% of political killings target local officials who challenge criminal or corrupt interests.
+                        </div>
+                    </div>
+                    
+                    <div class="connection-card">
+                        <h3 class="connection-title">Impunity Template</h3>
+                        <div class="connection-description">
+                            <p>The investigation into Colosio's death created a template for how to handle political assassinations: capture a lone gunman quickly, declare the case solved, ignore deeper conspiracies, and ensure the real perpetrators remain free.</p>
+                        </div>
+                        <div class="connection-example">
+                            95% of current political killings follow the same pattern of limited investigations and convenient scapegoats.
+                        </div>
+                    </div>
+                    
+                    <div class="connection-card">
+                        <h3 class="connection-title">Systemic Impact</h3>
+                        <div class="connection-description">
+                            <p>Colosio's murder created a climate of fear that transformed Mexican politics. It demonstrated that even the most protected figures could be eliminated, sending a message to all who might challenge established power.</p>
+                        </div>
+                        <div class="connection-example">
+                            82% of current journalists practice self-censorship due to fear of political violence.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-section">
+                <h2>From Colosio to Today</h2>
+                <div class="historical-timeline">
+                    <div class="timeline-event">
+                        <div class="event-content">
+                            <div class="event-year">1994</div>
+                            <h3 class="event-title">Colosio Assassination</h3>
+                            <div class="event-description">
+                                Presidential candidate killed during campaign rally in Tijuana. Mario Aburto Martínez arrested immediately. Official narrative of lone gunman established.
+                            </div>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-event">
+                        <div class="event-content">
+                            <div class="event-year">1994-2000</div>
+                            <h3 class="event-title">Pattern Established</h3>
+                            <div class="event-description">
+                                Multiple political killings follow similar patterns. Investigations focus on immediate perpetrators rather than masterminds. Impunity becomes the norm.
+                            </div>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-event">
+                        <div class="event-content">
+                            <div class="event-year">2000-2006</div>
+                            <h3 class="event-title">Democracy's False Dawn</h3>
+                            <div class="event-description">
+                                PAN ends PRI's 71-year rule, but patterns of political violence continue and intensify. Killings spread to journalists and activists.
+                            </div>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-event">
+                        <div class="event-content">
+                            <div class="event-year">2006-2012</div>
+                            <h3 class="event-title">Drug War Escalation</h3>
+                            <div class="event-description">
+                                War on drugs provides cover for political killings. Violence against journalists skyrockets. Impunity rates exceed 90%.
+                            </div>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-event">
+                        <div class="event-content">
+                            <div class="event-year">2012-2018</div>
+                            <h3 class="event-title">Systematization</h3>
+                            <div class="event-description">
+                                Political violence becomes systematic. Local elections become battlegrounds. Environmental defenders increasingly targeted.
+                            </div>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-event">
+                        <div class="event-content">
+                            <div class="event-year">2018-Present</div>
+                            <h3 class="event-title">Crisis Point</h3>
+                            <div class="event-description">
+                                Mexico becomes world's deadliest country for journalists. Political killings reach unprecedented levels. System of impunity fully entrenched.
+                            </div>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="legacy-section">
+                <h2>Colosio's Legacy in Numbers</h2>
+                <div class="legacy-grid">
+                    <div class="legacy-item">
+                        <div class="legacy-number">30</div>
+                        <div class="legacy-label">Years of escalating violence since 1994</div>
+                    </div>
+                    <div class="legacy-item">
+                        <div class="legacy-number">1,200+</div>
+                        <div class="legacy-label">Political killings following Colosio patterns</div>
+                    </div>
+                    <div class="legacy-item">
+                        <div class="legacy-number">95%</div>
+                        <div class="legacy-label">Impunity rate established in 1994</div>
+                    </div>
+                    <div class="legacy-item">
+                        <div class="legacy-number">0</div>
+                        <div class="legacy-label">High-level political assassinations solved</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="conclusion">
+                <h3>The Unbroken Chain</h3>
+                <p>Luis Donaldo Colosio's assassination was not an isolated tragedy—it was the beginning of Mexico's modern crisis of political violence. The patterns established in his murder, the investigation that followed, and the impunity that resulted have become the template for how Mexico handles threats to established power.</p>
+                
+                <p>Every journalist killed for investigating corruption, every activist eliminated for defending human rights, every politician assassinated for challenging criminal influence—they are all connected to that day in Tijuana in 1994. The same forces that killed Colosio continue to kill today, using the same methods and enjoying the same impunity.</p>
+                
+                <p>Understanding this connection is essential to understanding Mexico's death toll. The crisis did not begin recently—it has been thirty years in the making, growing from the seeds planted by Colosio's assassination into the systematic violence that threatens Mexican democracy today.</p>
+                
+                <p>Breaking this cycle requires confronting not just current violence, but the historical patterns and power structures that have enabled it for three decades. Until the lessons of Colosio's murder are learned and addressed, Mexico's death toll will continue to rise.</p>
+            </div>
+        </main>
+        
+        <footer>
+            <a href="../index.html" class="back-link">← Back to Main Investigation</a>
+        </footer>
+    </div>
+</body>
+</html>
